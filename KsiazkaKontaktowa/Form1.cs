@@ -98,51 +98,19 @@ namespace KsiazkaKontaktowa
             }
         }
 
-
-
-        private void lastnameSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            dt = new DataTable();
-            connection.Open();
-            String query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia' FROM Contacts WHERE lastname like '%" + lastnameSearchBox.Text.ToLower() + "%'";
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection.myConnection);
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            connection.Close();
-        }
-
         private void nameSearchBox_TextChanged(object sender, EventArgs e)
         {
-            dt = new DataTable();
-            connection.Open();
-            String query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia' FROM Contacts WHERE name like '%" + nameSearchBox.Text.ToLower() + "%'";
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection.myConnection);
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            connection.Close();
+            if (nameSearchBox.Text == String.Empty)
+            {
+                display(displayQuery);
+            }
+            else
+            {
+                displayQuery = string.Format("SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia' FROM Contacts WHERE name like '%{0}%' OR lastname like '%{0}%' OR telnumber like '%{0}%' OR email like '%{0}%' OR birth like '%{0}%' ", nameSearchBox.Text);
+                display(displayQuery);
+            }
         }
 
-        private void telSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            dt = new DataTable();
-            connection.Open();
-            String query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia' FROM Contacts WHERE telnumber like '%" + telSearchBox.Text + "%'";
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection.myConnection);
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            connection.Close();
-        }
-
-        private void emailSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            dt = new DataTable();
-            connection.Open();
-            String query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia' FROM Contacts WHERE email like '%" + emailSearchBox.Text.ToLower() + "%'";
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection.myConnection);
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            connection.Close();
-        }
 
         private void deleteBox_Click(object sender, EventArgs e)
         {
@@ -175,12 +143,13 @@ namespace KsiazkaKontaktowa
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            nameBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            lastnameBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            telBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            emailBox.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            dateBox.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                ID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                nameBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                lastnameBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                telBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                emailBox.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                dateBox.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
         private void label10_Click(object sender, EventArgs e)
