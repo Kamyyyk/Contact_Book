@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
 
 namespace KsiazkaKontaktowa
 {
@@ -16,20 +17,43 @@ namespace KsiazkaKontaktowa
         DataTable dt = new DataTable();
         Connection connection = new Connection();
         int ID;
+        string displayQuery = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia', ROUND(365-MOD(julianday(date('now')) - julianday(date(birth)),365.25)) AS Dnidourodzin FROM Contacts ORDER BY Dnidourodzin ";
         public Form1()
         {
             InitializeComponent();
+            display(displayQuery);
+            SetTimer();
         }
 
-        public void display()
+        public void display(String Query)
         {
             dt = new DataTable();
-            connection.Open();
-            string query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia', ROUND(365-MOD(julianday(date('now')) - julianday(date(birth)),365.25)) AS Dnidourodzin FROM Contacts ORDER BY Dnidourodzin ";
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection.myConnection);
+            connection.Open();          
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(Query, connection.myConnection);
             adapter.Fill(dt);
             dataGridView1.DataSource = dt;
             connection.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                displayBirthdays();
+                display(displayQuery);
+
+            }
+            else
+            {
+                displayQuery = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia', ROUND(365-MOD(julianday(date('now')) - julianday(date(birth)),365.25)) AS Dnidourodzin FROM Contacts ORDER BY Dnidourodzin ";
+                display(displayQuery);
+            }         
+
+        }
+
+        public void displayBirthdays()
+        {
+            displayQuery = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia', ROUND(365-MOD(julianday(date('now')) - julianday(date(birth)),365.25)) AS Dnidourodzin FROM Contacts WHERE Dnidourodzin < 8 ORDER BY Dnidourodzin  ";
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -39,7 +63,7 @@ namespace KsiazkaKontaktowa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            display();
+            
         }
 
         public void clear()
@@ -69,7 +93,7 @@ namespace KsiazkaKontaktowa
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
                 connection.Close();
-                display();
+                display(displayQuery);
                 MessageBox.Show("Dodano nowy element do bazy");
             }
         }
@@ -109,17 +133,6 @@ namespace KsiazkaKontaktowa
             connection.Close();
         }
 
-        private void RefreshButton_Click(object sender, EventArgs e)
-        {
-            dt = new DataTable();
-            connection.Open();
-            string query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email, birth AS 'Data urodzenia' FROM Contacts";
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection.myConnection);
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            connection.Close();
-        }
-
         private void emailSearchBox_TextChanged(object sender, EventArgs e)
         {
             dt = new DataTable();
@@ -138,7 +151,7 @@ namespace KsiazkaKontaktowa
             SQLiteCommand cmd = new SQLiteCommand(query, connection.myConnection);
             cmd.ExecuteNonQuery();
             connection.Close();
-            display();
+            display(displayQuery);
         }
 
         private void updateBox_Click(object sender, EventArgs e)
@@ -154,7 +167,9 @@ namespace KsiazkaKontaktowa
                 SQLiteCommand cmd = new SQLiteCommand(query, connection.myConnection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
-                display();
+                display(displayQuery);
+                MessageBox.Show("Baza kontaktów została zaktualizowana");
+
             }
         }
 
@@ -172,5 +187,25 @@ namespace KsiazkaKontaktowa
         {
 
         }
+
+        public void Timer_Tick(object sender, EventArgs e)
+        {
+            display(displayQuery);
+            
+        }
+        public void SetTimer()
+        {
+            DispatcherTimer Timer = new DispatcherTimer();
+            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Interval = new TimeSpan(0, 0, 10);
+            Timer.Start();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
