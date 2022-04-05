@@ -61,7 +61,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 97);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(664, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(752, 201);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -191,7 +191,7 @@
             // 
             // telSearchBox
             // 
-            this.telSearchBox.Location = new System.Drawing.Point(423, 352);
+            this.telSearchBox.Location = new System.Drawing.Point(485, 352);
             this.telSearchBox.Name = "telSearchBox";
             this.telSearchBox.Size = new System.Drawing.Size(100, 20);
             this.telSearchBox.TabIndex = 22;
@@ -199,7 +199,7 @@
             // 
             // emailSearchBox
             // 
-            this.emailSearchBox.Location = new System.Drawing.Point(324, 352);
+            this.emailSearchBox.Location = new System.Drawing.Point(386, 352);
             this.emailSearchBox.Name = "emailSearchBox";
             this.emailSearchBox.Size = new System.Drawing.Size(93, 20);
             this.emailSearchBox.TabIndex = 21;
@@ -207,7 +207,7 @@
             // 
             // lastnameSearchBox
             // 
-            this.lastnameSearchBox.Location = new System.Drawing.Point(225, 352);
+            this.lastnameSearchBox.Location = new System.Drawing.Point(287, 352);
             this.lastnameSearchBox.Name = "lastnameSearchBox";
             this.lastnameSearchBox.Size = new System.Drawing.Size(93, 20);
             this.lastnameSearchBox.TabIndex = 20;
@@ -215,7 +215,7 @@
             // 
             // nameSearchBox
             // 
-            this.nameSearchBox.Location = new System.Drawing.Point(126, 352);
+            this.nameSearchBox.Location = new System.Drawing.Point(188, 352);
             this.nameSearchBox.Name = "nameSearchBox";
             this.nameSearchBox.Size = new System.Drawing.Size(93, 20);
             this.nameSearchBox.TabIndex = 19;
@@ -224,7 +224,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(432, 336);
+            this.label6.Location = new System.Drawing.Point(494, 336);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 18;
@@ -233,7 +233,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(353, 336);
+            this.label7.Location = new System.Drawing.Point(415, 336);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 17;
@@ -242,7 +242,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(244, 336);
+            this.label8.Location = new System.Drawing.Point(306, 336);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 13);
             this.label8.TabIndex = 16;
@@ -251,7 +251,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(157, 336);
+            this.label9.Location = new System.Drawing.Point(219, 336);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 13);
             this.label9.TabIndex = 15;
@@ -259,7 +259,7 @@
             // 
             // RefreshButton
             // 
-            this.RefreshButton.Location = new System.Drawing.Point(12, 312);
+            this.RefreshButton.Location = new System.Drawing.Point(74, 312);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(93, 61);
             this.RefreshButton.TabIndex = 23;
@@ -271,7 +271,7 @@
             // 
             this.Szukaj.AutoSize = true;
             this.Szukaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Szukaj.Location = new System.Drawing.Point(281, 301);
+            this.Szukaj.Location = new System.Drawing.Point(343, 301);
             this.Szukaj.Name = "Szukaj";
             this.Szukaj.Size = new System.Drawing.Size(72, 25);
             this.Szukaj.TabIndex = 24;
@@ -282,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 383);
+            this.ClientSize = new System.Drawing.Size(776, 383);
             this.Controls.Add(this.Szukaj);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.telSearchBox);

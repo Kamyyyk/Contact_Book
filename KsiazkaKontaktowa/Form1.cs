@@ -25,7 +25,7 @@ namespace KsiazkaKontaktowa
         {
             dt = new DataTable();
             connection.Open();
-            string query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia' FROM Contacts";
+            string query = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia', ROUND(365-MOD(julianday(date('now')) - julianday(date(birth)),365.25)) AS Dnidourodzin FROM Contacts ORDER BY Dnidourodzin ";
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection.myConnection);
             adapter.Fill(dt);
             dataGridView1.DataSource = dt;
