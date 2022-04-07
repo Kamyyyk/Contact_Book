@@ -56,15 +56,6 @@ namespace KsiazkaKontaktowa
             displayQuery = "SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia', ROUND(365-MOD(julianday(date('now')) - julianday(date(birth)),365.25)) AS Dnidourodzin FROM Contacts WHERE Dnidourodzin < 8 ORDER BY Dnidourodzin  ";
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         public void clear()
         {
@@ -106,7 +97,7 @@ namespace KsiazkaKontaktowa
             }
             else
             {
-                displayQuery = string.Format("SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia' FROM Contacts WHERE name like '%{0}%' OR lastname like '%{0}%' OR telnumber like '%{0}%' OR email like '%{0}%' OR birth like '%{0}%' ", nameSearchBox.Text);
+                displayQuery = string.Format("SELECT id, name AS Imie, lastname AS Nazwisko, telnumber AS 'Numer Telefonu', email AS Email, birth AS 'Data urodzenia', ROUND(365-MOD(julianday(date('now')) - julianday(date(birth)),365.25)) AS Dnidourodzin FROM Contacts WHERE name like '%{0}%' OR lastname like '%{0}%' OR telnumber like '%{0}%' OR email like '%{0}%' OR birth like '%{0}%' ", nameSearchBox.Text);
                 display(displayQuery);
             }
         }
@@ -152,10 +143,6 @@ namespace KsiazkaKontaktowa
                 dateBox.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public void Timer_Tick(object sender, EventArgs e)
         {
@@ -170,11 +157,10 @@ namespace KsiazkaKontaktowa
             Timer.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
-
+            display(displayQuery);
         }
-
-
     }
 }

@@ -46,6 +46,7 @@
             this.nameSearchBox = new System.Windows.Forms.TextBox();
             this.Wyszukaj = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +94,6 @@
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Numer telefonu";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -199,7 +199,6 @@
             this.Wyszukaj.Size = new System.Drawing.Size(98, 25);
             this.Wyszukaj.TabIndex = 24;
             this.Wyszukaj.Text = "Wyszukaj";
-            this.Wyszukaj.Click += new System.EventHandler(this.label10_Click);
             // 
             // checkBox1
             // 
@@ -212,11 +211,22 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(698, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(66, 40);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Odśwież";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 383);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Wyszukaj);
             this.Controls.Add(this.nameSearchBox);
@@ -237,7 +247,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -264,6 +273,7 @@
         private System.Windows.Forms.TextBox nameSearchBox;
         private System.Windows.Forms.Label Wyszukaj;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
