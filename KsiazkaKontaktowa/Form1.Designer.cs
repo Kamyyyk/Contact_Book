@@ -44,7 +44,7 @@
             this.deleteBox = new System.Windows.Forms.Button();
             this.updateBox = new System.Windows.Forms.Button();
             this.nameSearchBox = new System.Windows.Forms.TextBox();
-            this.Szukaj = new System.Windows.Forms.Label();
+            this.Wyszukaj = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -190,16 +190,16 @@
             this.nameSearchBox.TabIndex = 19;
             this.nameSearchBox.TextChanged += new System.EventHandler(this.nameSearchBox_TextChanged);
             // 
-            // Szukaj
+            // Wyszukaj
             // 
-            this.Szukaj.AutoSize = true;
-            this.Szukaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Szukaj.Location = new System.Drawing.Point(277, 314);
-            this.Szukaj.Name = "Szukaj";
-            this.Szukaj.Size = new System.Drawing.Size(72, 25);
-            this.Szukaj.TabIndex = 24;
-            this.Szukaj.Text = "Szukaj";
-            this.Szukaj.Click += new System.EventHandler(this.label10_Click);
+            this.Wyszukaj.AutoSize = true;
+            this.Wyszukaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Wyszukaj.Location = new System.Drawing.Point(277, 314);
+            this.Wyszukaj.Name = "Wyszukaj";
+            this.Wyszukaj.Size = new System.Drawing.Size(98, 25);
+            this.Wyszukaj.TabIndex = 24;
+            this.Wyszukaj.Text = "Wyszukaj";
+            this.Wyszukaj.Click += new System.EventHandler(this.label10_Click);
             // 
             // checkBox1
             // 
@@ -218,7 +218,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 383);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.Szukaj);
+            this.Controls.Add(this.Wyszukaj);
             this.Controls.Add(this.nameSearchBox);
             this.Controls.Add(this.updateBox);
             this.Controls.Add(this.deleteBox);
@@ -262,7 +262,7 @@
         private System.Windows.Forms.Button deleteBox;
         private System.Windows.Forms.Button updateBox;
         private System.Windows.Forms.TextBox nameSearchBox;
-        private System.Windows.Forms.Label Szukaj;
+        private System.Windows.Forms.Label Wyszukaj;
         private System.Windows.Forms.CheckBox checkBox1;
     }
 }
