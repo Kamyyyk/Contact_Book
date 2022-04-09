@@ -12,7 +12,7 @@ namespace KsiazkaKontaktowa
         public SQLiteConnection myConnection;
         public Connection()
         {
-            myConnection = new SQLiteConnection("Data Source=C:/Users/Kamyk/source/repos/KsiazkaKontaktowa/KsiazkaKontaktowa/ContactBook.sqlite");
+            myConnection = new SQLiteConnection("Data Source=ContactBook.sqlite");
         }
 
         public void Open()
